@@ -8,5 +8,6 @@ node ip-10-0-8-99 {
 }
 
 node ip-10-0-8-35 {
+	include puppet_test
 	include sshd
 }
