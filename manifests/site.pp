@@ -1,4 +1,5 @@
 node ip-10-0-8-128 {
+	include puppet_update
 	include sshd
 }
 
