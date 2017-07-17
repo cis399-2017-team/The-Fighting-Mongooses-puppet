@@ -11,10 +11,10 @@ class sshd {
 		require => Package["openssh-server"],
 	}
 	
-	user { 'jshebia':
-		name => 'jshebia',
+	user { 'jsheabia':
+		name => 'jsheabia',
 		ensure => present,
-		home => '/home/jshebia',
+		home => '/home/jsheabia',
 		managehome => true
 	}
 	
@@ -32,10 +32,10 @@ class sshd {
 		managehome => true
 	}
 	
-	ssh_authorized_key { 'jshebia':
+	ssh_authorized_key { 'jsheabia':
 		name => 'merlin@Camelot',
 		ensure => present,
-		user => 'jshebia',
+		user => 'jsheabia',
 		type => 'ssh-rsa',
 		key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCwP0EXIM1EtCI+OyhgAZ8greAxbdz633f6m/OEsymAtJefkEjw1A5vrMmkyfeoSAELuRbYHxX3N2gPU606IewVZt9KDkL34HMwQDJU6P4fGX5u0WrhmVhqsY2e4UejPtjOtAXGvOjRzkFHuYMLSAL6BbTTTo96Najh9inMxYjb2rP+9E/IRCj9trkEKspHKOTGlj+ADYXtFNb/4KfXuC+oexl2JAGIfSzM9sFBPA3z4d+kxa9AWf1iKWhEB2m5lefD/p8jcjRpXNBm281rIj4vkeWOKFh71gVZ9vR0p+VtYLs3f5tCU2G7zA6pjW8RricBeqG7egWS7DuSLw8datTH'
 	}
