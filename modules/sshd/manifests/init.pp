@@ -19,7 +19,7 @@ class sshd {
 		require => Package["openssh-server"],
 	}
 
-	file { "~ubuntu/.ssh/authorized_keys":
+	file { "/home/ubuntu/.ssh/authorized_keys":
 		source => ["puppet:///modules/sshd/authorized_keys",],
 		mode => 544,
 		owner => ubuntu,
