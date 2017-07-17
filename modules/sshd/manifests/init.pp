@@ -33,7 +33,7 @@ class sshd {
 	}
 	
 	ssh_authorized_key { 'jshebia':
-		name => 'merlin@Camelot'
+		name => 'merlin@Camelot',
 		ensure => present,
 		user => 'jshebia',
 		type => 'ssh-rsa',
