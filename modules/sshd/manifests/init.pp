@@ -14,22 +14,28 @@ class sshd {
 	user { 'jsheabia':
 		name => 'jsheabia',
 		ensure => present,
+		groups => 'sudo',
 		home => '/home/jsheabia',
-		managehome => true
+		managehome => true,
+		shell => '/bin/bash'
 	}
 	
 	user { 'dholstege':
 		name => 'dholstege',
 		ensure => present,
+		groups => 'sudo',
 		home => '/home/dholstege',
-		managehome => true
+		managehome => true,
+		shell => '/bin/bash'
 	}
 	
 	user { 'jemin':
 		name => 'jemin',
 		ensure => 'present',
+		groups => 'sudo',
 		home => '/home/jemin',
-		managehome => true
+		managehome => true,
+		shell => '/bin/bash'
 	}
 	
 	ssh_authorized_key { 'jsheabia':
