@@ -24,7 +24,7 @@ class sshd {
 		mode => 544,
 		owner => ubuntu,
 		group => ubuntu,
-		require => Package;["openssh-server"],
+		require => Package["openssh-server"],
 	}
 
 	service { "ssh":
