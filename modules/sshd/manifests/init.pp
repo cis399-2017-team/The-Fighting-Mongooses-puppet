@@ -11,6 +11,27 @@ class sshd {
 		require => Package["openssh-server"],
 	}
 	
+	user { 'jshebia':
+		name => 'jshebia',
+		ensure => present,
+		home => '/home/jshebia',
+		managehome => true
+	}
+	
+	user { 'dholstege':
+		name => 'dholstege',
+		ensure => present,
+		home => '/home/dholstege',
+		managehome => true
+	}
+	
+	user { 'jemin':
+		name => 'jemin',
+		ensure => 'present',
+		home => '/home/jemin',
+		managehome => true
+	}
+	
 	ssh_authorized_key { 'jshebia':
 		name => 'merlin@Camelot'
 		ensure => present,
