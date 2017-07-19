@@ -15,4 +15,5 @@ class apache {
 		owner => 'root',
 		group => 'root',
 		mode => '544',
+	}
 }
