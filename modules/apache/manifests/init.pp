@@ -15,5 +15,6 @@ class apache {
 		owner => 'root',
 		group => 'root',
 		mode => '544',
+		require => Package["apache2"],
 	}
 }
