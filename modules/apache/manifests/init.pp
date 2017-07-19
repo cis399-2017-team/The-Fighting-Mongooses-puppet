@@ -1,21 +1,22 @@
 class apache {
-	package { 'apache2':
-		ensure => latest,
+	package { "apache2":
+		ensure => installed,
 	}
-	service { 'apache2':
+
+	file { "/etc/apache2/apache2.conf":
+		source => ["puppet:///modules/apache/$hostname/apache2.conf", "puppet:///modules/apache/apache2.conf",],
+		mode => 544,
+		owner => root,
+		group => root,
+		require => Package["apache2"],
+	}
+
+	service { "apache2":
 		enable => true,
 		ensure => running,
-		hasrestart => true,
 		hasstatus => true,
-		require => Package["apache2"],
-		subscribe => '/etc/apache2/apache2.conf',
-	}
-	file { '/etc/apache2/apache2.conf':
-		ensure => present,
-		source => 'puppet:///modules/apache/$hostname/apache2.conf',
-		owner => 'root',
-		group => 'root',
-		mode => '544',
-		require => Package["apache2"],
+		hasrestart => true,
+		require => [ Package["apache2"], File["/etc/apache2/apache2.conf"] ],
+		subscribe => File["/etc/apache2/apache2.conf"],
 	}
 }
