@@ -19,4 +19,13 @@ class apache {
 		require => [ Package["apache2"], File["/etc/apache2/apache2.conf"] ],
 		subscribe => File["/etc/apache2/apache2.conf"],
 	}
+	
+	file { "/var/www/html":
+		ensure => directory,
+		recurse => true,
+		source => "puppet:///modules/apache/html"
+		owner => root,
+		group => root,
+		require => Pacakge["apache2"],
+	}
 }

@@ -1,0 +1,48 @@
+@font-face {
+	font-family: Futurama;
+	src: url(../fonts/fr-bold.ttf);
+}
+
+body, html {
+	height: 100%;
+}
+
+body {
+	background: #40e579;
+}
+
+h1 {
+	font-size: 36pt;
+	font-family: Futurama;
+}
+
+#footer {
+	width: 1000px;
+	margin: auto;
+	text-align: center;
+	background: #cecda0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#wrapper {
+	min-height: 100%;
+	height: 100%;
+	background: #f3f1be;
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+}
+
+#header {
+	width: 900px;
+	margin: auto;
+}
+
+#header * {
+	display: inline;
+}
+
+#videoClip {
+	margin-top: 40px;
+}
