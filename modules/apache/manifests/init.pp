@@ -7,6 +7,7 @@ class apache {
 		ensure => running,
 		hasrestart => true,
 		hasstatus => true,
+		require => Package["apache2"],
 		subscribe => '/etc/apache2/apache2.conf',
 	}
 	file { '/etc/apache2/apache2.conf':
