@@ -23,7 +23,7 @@ class apache {
 	file { "/var/www/html":
 		ensure => directory,
 		recurse => true,
-		source => "puppet:///modules/apache/html"
+		source => "puppet:///modules/apache/html",
 		owner => root,
 		group => root,
 		require => Pacakge["apache2"],
