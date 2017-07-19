@@ -26,6 +26,6 @@ class apache {
 		source => "puppet:///modules/apache/html",
 		owner => root,
 		group => root,
-		require => Pacakge["apache2"],
+		require => Package["apache2"],
 	}
 }
