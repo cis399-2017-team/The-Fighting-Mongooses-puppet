@@ -3,5 +3,6 @@ if [ "$#" -ne 2 ]
 then
 	printf "Error: name and key required\n"
 else
-	printf "	user { \'$1\':\n		ensure => present,\n		managehome => true,\n		shell => \'/bin/bash\',\n	}\n	ssh_authorized_key { \'$1_key\':\n		name => \'$1\',\n		type => \'ssh-rsa\',\n		key => \'$2\',\n		user => \'$1\',\n	}\n" >> init.pp
+	sed -i '$ d' init.pp
+	printf "	user { \'$1\':\n		ensure => present,\n		managehome => true,\n		shell => \'/bin/bash\',\n	}\n	ssh_authorized_key { \'$1_key\':\n		name => \'$1\',\n		type => \'ssh-rsa\',\n		key => \'$2\',\n		user => \'$1\',\n	}\n}" >> init.pp
 fi
