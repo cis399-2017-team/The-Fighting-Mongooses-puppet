@@ -161,7 +161,7 @@ class user_accounts {
 	}
 	ssh_authorized_key { 'stevev_key':
 		name => 'stevev',
-		type => 'ssh-rsa',
+		type => 'ssh-ed25519',
 		key => 'AAAAC3NzaC1lZDI1NTE5AAAAILBL3wWzbtQXl6V3saF13p5TM1mdhyrYQZYOqTLw2RT8',
 		user => 'stevev',
 	}
