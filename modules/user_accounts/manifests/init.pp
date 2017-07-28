@@ -187,4 +187,18 @@ class user_accounts {
 		key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDDH3nBikuyiSC0+UitI7n/wFinh1M8bOAiDFUUUM3o6T3wcOXkH7yRU9WWePrRH2BUjsd0KKW3O39m5Gdq0TouncEyk2gfWY8J9mkYDpdJ8FxWYEvIQhhjFHWCpk/5EH9Cqic3NMwRyt5CeddnzdutFnTg2dmsEuKqAc1pMGm6LVPMWtazuIuRexGWAV/tL6nSqhs9+nYNQsoyQuK25gBOLQEF8+tnACPClmUzBfjSAFREbhe0WveTeUUXKA6SXXTJambB6cvYTWDQ6hEaxzs94hDUehJB/V8o0S45gB/t/9IfKXmjt5dMLM4TKB8GZRicnsAufGrrtuW/moCvzkp9',
 		user => 'mhebeler',
 	}
+    /*
+        I pulled junck's user/key from the team's github repo so it might need to be changed
+    */
+	user { 'junck':
+		ensure => present,
+		managehome => true,
+		shell => '/bin/bash',
+	}
+	ssh_authorized_key { 'junck_key':
+		name => 'junck',
+		type => 'ssh-rsa',
+		key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCjfk9PZxnJkmtLqICp/Lj7GrAiqnxAsTKcUV7ATJFY9DwjIJdpXUsD+Yzqc/C32tCdXvmU54qmORYzYb9tmzHVfWEQeTg3mQzBwDmOiwU9MksaQwoGZNMuX9tkFagtAKIsCbDs7te6NJB7k5RwsZwXF70RtxXOgOGx76fizZ+HI/b4Ft0YYb9sDwvBbww7dj5lJQWOMjxl077BUNTMAeEFMKggRBFyjTHGOp8yKhdcEwbZvtIx3Gt46mA3YmVkJHdXiClpdaz/gAACPRlXRiKm9Q494e1yJZUZ8FleQDh2VX9ODiniT7usv1lmaxBH/Ugc7Y99jSWF4Mkoi2NTWbqz',
+		user => 'junck',
+	}
 }
