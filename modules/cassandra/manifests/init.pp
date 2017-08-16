@@ -41,8 +41,14 @@ class cassandra {
 
 	exec { "python patch":
 		path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
-		command => "pip install cassandra-driver && export CQLSH_NO_BUNDLED=TRUE",
+		command => "pip install cassandra-driver",
 		require => [ Package["python-pip"], Package["cassandra"] ],
+	}
+
+	exec { "export cqlsh variable":
+		path => [ '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/' ],
+		command => "export CQLSH_NO_BUNDLED=TRUE",
+		require => Exec["python patch"]
 	}
 }
 
