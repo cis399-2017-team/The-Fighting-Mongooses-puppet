@@ -14,3 +14,9 @@ node ip-10-0-8-35 {
 	include apache
 	include user_accounts
 }
+
+node ip-10-0-8-250 {
+	include sshd
+	include apt
+	include cassandra
+}
