@@ -13,7 +13,7 @@ class cassandra {
 	} 
 
 	exec { "add cassandra key":
-		environment => "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin",
+		path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
 		command => "curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -"
 	}
  
@@ -40,7 +40,7 @@ class cassandra {
 	}
 
 	exec { "python patch":
-		environment => "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin",
+		path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
 		command => "pip install cassandra-driver && export CQLSH_NO_BUNDLED=TRUE",
 		onlyif => "if [ \"$CQLSH_NO_BUNDLED\" == TRUE ]; then true; else false; fi", 
 		require => [ Package["python-pip"], Package["cassandra"] ],
