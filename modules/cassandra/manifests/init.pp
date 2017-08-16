@@ -39,11 +39,11 @@ class cassandra {
 		subscribe => File["/etc/cassandra/cassandra.yaml"]
 	}
 
-	exec { "python patch":
-		path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
-		command => "pip install cassandra-driver && export CQLSH_NO_BUNDLED=TRUE",
-		onlyif => "if [ \"$CQLSH_NO_BUNDLED\" == TRUE ]; then true; else false; fi", 
-		require => [ Package["python-pip"], Package["cassandra"] ],
-	}
+#	exec { "python patch":
+#		path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
+#		command => "pip install cassandra-driver && export CQLSH_NO_BUNDLED=TRUE",
+#		onlyif => "if [ \"$CQLSH_NO_BUNDLED\" == TRUE ]; then true; else false; fi", 
+#		require => [ Package["python-pip"], Package["cassandra"] ],
+#	}
 }
 
