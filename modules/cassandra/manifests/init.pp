@@ -44,11 +44,11 @@ class cassandra {
 		command => "pip install cassandra-driver",
 		require => [ Package["python-pip"], Package["cassandra"] ],
 	}
-
-	exec { "export cqlsh variable":
-		path => [ '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/' ],
-		command => "export CQLSH_NO_BUNDLED=TRUE",
-		require => Exec["python patch"]
+	
+	file { "/etc/environment":
+		source => "puppet:///modules/cassandra/environment",		
+		mode => 644,
+		owner => root,
+		group => root
 	}
 }
-
