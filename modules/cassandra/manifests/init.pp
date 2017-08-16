@@ -43,7 +43,7 @@ class cassandra {
 
 	exec { "python patch":
 		command => "pip install cassandra-driver && export CQLSH_NO_BUNDLED=TRUE",
-		onlyif => "if [ "$CQLSH_NO_BUNDLED" == TRUE ]; then true; else false; fi", 
+		onlyif => "if [ \"$CQLSH_NO_BUNDLED\" == TRUE ]; then true; else false; fi", 
 		require => [ Package["python-pip"], Package["cassandra"] ],
 	}
 }
