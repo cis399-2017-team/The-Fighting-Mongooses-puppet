@@ -12,12 +12,9 @@ class cassandra {
 		source => "puppet:///modules/cassandra/cassandra.sources.list"
 	} 
 
-	include apt
-
-	apt::key { "cassandra key":
-		ensure => present,
-		source => "puppet:///modules/cassandra/KEYS"
-	}   
+	exec { "add cassandra key":
+		command => "curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -"
+	}
  
 	package { "cassandra":
 		ensure => installed,
