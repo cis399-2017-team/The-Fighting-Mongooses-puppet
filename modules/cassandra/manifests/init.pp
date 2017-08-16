@@ -1,5 +1,3 @@
-include apt
-
 class cassandra {
 
 	package { "openjdk-8-jre":
@@ -13,6 +11,8 @@ class cassandra {
 	file { "/etc/apt/sources.list.d/cassandra.sources.list":
 		source => "puppet:///modules/cassandra/cassandra.sources.list"
 	} 
+
+	include apt
 
 	apt::key { "cassandra key":
 		ensure => present,
