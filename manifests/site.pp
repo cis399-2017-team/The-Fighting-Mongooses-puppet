@@ -19,3 +19,8 @@ node ip-10-0-8-250 {
 	include sshd
 	include cassandra
 }
+
+node ip-10-0-8-34 {
+	include sshd
+	include cassandra
+}
