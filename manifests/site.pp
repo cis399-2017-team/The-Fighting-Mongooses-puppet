@@ -17,6 +17,5 @@ node ip-10-0-8-35 {
 
 node ip-10-0-8-250 {
 	include sshd
-	include apt
 	include cassandra
 }
