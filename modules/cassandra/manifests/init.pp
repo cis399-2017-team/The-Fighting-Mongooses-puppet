@@ -16,6 +16,11 @@ class cassandra {
 		path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
 		command => "curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -"
 	}
+    
+    exec { "update repositories":
+        path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
+        command => "sudo apt-get update"
+    }
  
 	package { "cassandra":
 		ensure => installed,
